@@ -1,9 +1,12 @@
 <!--评论-->
 <% if(theme.comment.use == 'gitment') { %>
 <!--gitment-->
+<link rel="stylesheet" href="/css/gitment.css">
+<%- js('js/js/gitment.js') %>
+<%- js('js/gitment-theme.js') %>
 <script>
   var gitment = new Gitment({
-    id: '<%- page.comment_id || page.date %>', 
+    id: '<%- page.comment_id || page.date %>',
     owner: '<%= theme.comment.gitment.owner %>',
     repo: '<%= theme.comment.gitment.repo %>',
     oauth: {
@@ -22,8 +25,10 @@
     el: '#vcomments',
     appId: '<%= theme.comment.valine.appid %>',
     appKey: '<%= theme.comment.valine.appkey %>',
-    path: '<%= page.date %>',
-    avatar: 'identicon'
+    path: window.location.pathname,
+    avatar: 'identicon',
+    notify: true,
+    verify: true,
   })
 </script>
 <% } else if (theme.comment.use == 'disqus') { %>
@@ -55,5 +60,23 @@
     admin: "<%= theme.comment.disqusjs.admin %>",
     adminLabel: "<%= theme.comment.disqusjs.adminLabel %>"
   });
+</script>
+<% } else if (theme.comment.use == 'gitalk') { %>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<link rel="stylesheet" href="/css/gitalk.css">
+<div id="gitalk-container"></div>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '<%= theme.comment.gitalk.clientID %>',
+    clientSecret: '<%= theme.comment.gitalk.clientSecret %>',
+    repo: '<%= theme.comment.gitalk.repo %>',
+    owner: '<%= theme.comment.gitalk.owner %>',
+    admin: ['<%= theme.comment.gitalk.admin %>'],
+    id: '<%- page.comment_id || page.date %>',      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    perPage: 20,
+
+  })
+  gitalk.render('gitalk-container')
 </script>
 <% } %>

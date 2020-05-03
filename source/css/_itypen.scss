@@ -1,5 +1,65 @@
+/*
+网站全灰
+
+html {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+*/
+
+#content_progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  color: $progress-color;
+}
+
+#content_progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+#content_progress::-webkit-progress-value {
+  background-color: $progress-color;
+}
+
+#content_progress::-moz-progress-bar {
+  background-color: $progress-color;
+}
+
 body {
-  background-color: #f8f9fa !important;
+  background-color: $bg-color !important;
+  font-family: "SF UI Display", ".PingFang SC", "PingFang SC", "Neue Haas Grotesk Text Pro", "Arial Nova", "Segoe UI", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "Helvetica", "Hiragino Sans GB", sans-serif;
+}
+
+body ::selection {
+  background: $main-color;
+  color: #fff;
+}
+
+body ::-moz-selection,
+body ::-webkit-selection {
+  background: $main-color;
+  color: #fff;
+}
+
+.nodisplay {
+  display: none;
+}
+
+.display {
+  display: inline;
+}
+
+.toc-display {
+  display: block;
 }
 
 .padding-70 {
@@ -14,130 +74,30 @@ body {
   padding-top: 25px;
 }
 
-.post-container {
-  margin: 0 auto;
+.itp-category-list {
+  font-size: 16px;
+  line-height: 1.8em;
+  list-style-type: none;
 }
 
-.itp-index-header {
-  .itp-index-header-title {
-    color: #222831;
-    font-size: 28px;
-  }
-
-  .itp-index-header-description {
-    color: #222831;
-  }
-}
-
-.itp-index-header-card_style {
-  @media screen and (max-width: 816px) {
-    padding-top: 60px;
-  }
-
-  @media screen and (min-width: 816px) {
-    padding-top: 70px;
-  }
-
-  .itp-header-img {
-    height: 336px;
-    border-radius: 0px;
-    object-fit: cover;
-  }
-}
-
-.itp-post-index-hero {
-  .mdui-card-primary-title {
-    a {
-      color: #fff !important;
-      opacity: .87 !important;
-    }
-  }
-
-  .mdui-card-primary-subtitle {
-    a {
-      color: #fff !important;
-      opacity: .87 !important;
-    }
-  }
-}
-
-.itp-post-index {
-  margin-top: 50px;
-}
-
-.itp-post-index-title {
-  a {
-    color: #222831 !important;
-    font-size: 22px;
-    text-decoration: none;
-  }
-}
-
-.itp-post-index-subtitle {
-  padding-top: 5px;
-  color: #222831 !important;
-}
-
-.itp-post-index-categories {
-  color: #222831 !important;
-}
-
-.itp-post-index-summary {
-  a {
-    color: #222831;
-    text-decoration: none;
-  }
-}
-
-.itp-post-index-hero {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.itp-post-index-hero-primary {
-  background: rgba(0, 0, 0, .2);
-}
-
-.itp-post-top {
-  position: relative;
-  z-index: 0;
-  max-width: 890px;
-  margin-right: auto !important;
-  margin-left: auto !important;
-  text-align: left;
-  line-height: .7rem;
-  font-size: .625rem;
-}
-
-.itp-index-header {
-  @media screen and (max-width: 768px) {
-    padding-top: 65px;
-  }
-}
-
-.itp-post-card {
-  margin-bottom: 140px;
-
-  @media screen and (min-width: 816px) {
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12) !important;
-  }
-
-  @media screen and (max-width: 768px) {
+@media print {
+  .itp-post-card {
     box-shadow: 0 0px 0px 0px #fff !important;
-
-    .itp-index-header {
-      padding-top: 65px;
-    }
-
-    .mdui-card {
-    }
+    margin-bottom: 60px;
   }
 }
 
-.itp-post-comment {
-  background-color: #eeeeee;
-  padding: 20px 20px 20px 20px !important;
+@media screen and (max-width: 816px) {
+  .itp-post-card {
+    box-shadow: 0 0px 0px 0px #fff !important;
+  }
+}
+
+@media screen and (min-width: 816px) {
+  .itp-post-card {
+    -webkit-box-shadow: 0 0px 0px 0 rgba(1, 1, 1, .15);
+    box-shadow: 0 0px 0px 0 rgba(1, 1, 1, .15);
+  }
 }
 
 .itp-page-select {
@@ -152,13 +112,31 @@ body {
   color: #767676;
 }
 
+.mdui-chip-title-link {
+  display: inline-block;
+  height: 32px;
+  padding-right: 12px;
+  padding-left: 12px;
+  font-size: 14px;
+  line-height: 32px;
+  vertical-align: middle;
+}
 
-strong {
+strong,
+b {
+  color: $main-color;
   font-weight: bold;
 }
 
-em {
+em,
+i {
+  color: $main-color;
   font-style: italic;
+}
+
+a {
+  color: $main-color;
+  text-decoration: none;
 }
 
 .cdn-img {
@@ -173,7 +151,7 @@ em {
   .photograph-header {
     max-width: 800px;
     background-size: cover;
-    background-image: url(https://imgur.itypen.com/picgo/20190524175214.svg)
+    background-image: url(https://imgur.lzmun.com/picgo/20190524175214.svg)
   }
 }
 
@@ -183,80 +161,33 @@ em {
   }
 }
 
-.article {
-  padding-right: 20px;
-  padding-left: 20px;
+@media screen {
+  .noscreen {
+    display: none;
+  }
 }
 
-.post-content p img {
-  display: block;
-  margin: 0 auto;
-}
+.itp-footer {
 
-.post-nav {
-  height: 150px;
+  background-color: rgba(255, 255, 255, 0);
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 
+  .footer-info,
   a {
-    color: white;
+    color: $grey;
   }
 
-  img {
-    border-radius: 0px !important;
+  .footer-logo {
+    padding: 10px 0 0 0;
   }
 
-  background-size: cover;
-  background-position: 50% 50%;
-
-}
-
-.aspect-ratio {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 75%;
-}
-
-.aspect-ratio iframe {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-
-footer {
-  background-color: #424242;
-  width: 100% !important;
-
-  h1 {
-    color: #eee;
-  }
 }
 
 .drawer-spacer {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-}
-
-.itp-toc-menu {
-  position: fixed !important;
-  right: 16px;
-}
-
-.itp-post-toc {
-  .mdui-fab-fixed {
-    right: 16px !important;
-    bottom: 16px !important;
-  }
-}
-
-.itp-index-notice {
-  background-color: #ede59a !important;
-}
-
-#dsqjs footer {
-  background-color: #eeeeee;
 }
 
 .mdui-textfield {
@@ -284,6 +215,6 @@ footer {
   margin-right: 5px;
 
   a {
-    color: #000;
+    color: $black;
   }
 }
