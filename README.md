@@ -1,6 +1,7 @@
 <img src="./hexo-theme-type-logo.png" alt="logo" width="72" height="72" align="right" />
 
 本主题的实时更新可以浏览以下仓库
+
 [https://github.com/aiokr/iTypen-Hexo/tree/master/themes/hexo-theme-type](https://github.com/aiokr/iTypen-Hexo/tree/master/themes/hexo-theme-type)
 
 # hexo-theme-type
